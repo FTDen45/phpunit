@@ -1,0 +1,37 @@
+{
+	"name": "ftfor/phpunit",
+	"authors": [
+		{
+			"name": "Denis",
+			"email": "ftforest640@gmail.com"
+		}
+	],
+	"minimum-stability": "stable",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+	"require-dev": {
+		"friendsofphp/php-cs-fixer": "^3.0",
+		"symfony/process": "^5.2",
+		"symfony/console": "^5.2",
+		"squizlabs/php_codesniffer": "^3.6"
+	},
+	"scripts": {
+		"post-install-cmd": [
+				"App\\Composer\\ScriptHandler::postHooks"
+		],
+		"post-update-cmd": [
+				"App\\Composer\\ScriptHandler::postHooks"
+		],
+		"pre-update-cmd": "App\\Composer\\ScriptHandler::preHooks",
+		"pre-install-cmd": "App\\Composer\\ScriptHandler::preHooks"
+	},
+	"extra": {
+		"hooks": {
+				"pre-commit": "hooks/pre-commit.php"
+		}
+	}
+}
